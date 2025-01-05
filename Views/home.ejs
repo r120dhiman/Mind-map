@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./Partials/header') %>
+    <title>Welcome to Find Your Blog</title>
+</head>
+<body>
+    <%- include('./Partials/navbar')%>
+    <div class="container mt-3" style="display: flex; flex-wrap: wrap; gap: 30px;">
+        <% blog.forEach(item => { %>
+            <div class="card" style="width: 18rem; display: flex;flex-direction: column; gap: 10px; " >
+                <img src="<%= item.coverimgurl %>" class="card-img-top" style="width: 18rem; margin: auto;" alt="...">
+                <div class="card-body" >
+                  <h5 class="card-title"><%= item.title %></h5>
+                  <a href="/blog/<%= item._id %>" class="btn btn-primary mb-1">Read...</a>
+                </div>
+              </div>
+        <% }) %>
+    </div>
+    <%- include('./Partials/footer') %>
+    <!-- <%= JSON.stringify(blog) %> -->
+    <%- include('./Partials/scripts') %>
+</body>
+</html>

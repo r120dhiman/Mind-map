@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./Partials/header') %>
+    <title>Sign Up</title>
+</head>
+<body>
+    <%- include('./Partials/navbar')%>
+    <div class="container " style="display: flex; justify-content: center; align-items: center; height: 750px;">
+        <form action="/user/signin" class="" style="width: 500px;" method="post">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" name="password" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+    <%- include('./Partials/footer') %>
+    <%- include('./Partials/scripts') %>
+</body>
+</html>

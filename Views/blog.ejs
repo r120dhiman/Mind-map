@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./Partials/header') %>
+    <title><%= blogdata.title %> By <%= blogdata.createdby.fullname %></title>
+</head>
+<body>
+    <%- include('./Partials/navbar')%>
+    <div class="main" style="height: 680px; overflow: auto;">
+    <div class=" mb-3 mt-5 container" style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-direction: column;">
+        <% if (blogdata.coverimgurl) { %>
+            <img src="<%= blogdata.coverimgurl %>" class="card-img-top" style="height: 500px; " alt="...">
+        <% } %>
+        <div class="card-body ">
+          <h1 class="card-title" ><%= blogdata.title %> </h1>
+          <p class="card-text mt-5"><%= blogdata.body %></p>
+        </div>
+
+        <div class="container col" style="display: flex; align-items:end;" >
+          <img src="<%= blogdata.createdby.profileimg %>" width="60px" alt="">
+          <h2> -<%= blogdata.createdby.fullname %></h2>
+        </div>
+      </div>
+     <% if (locals.user) { %>
+      <div class="form-floating container">
+        <form method="post" action="/blog/comment/<%= blogdata._id %>" >
+        <textarea class="form-control" name="content" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        <button type="submit" class="btn btn-primary mt-3  ">Post</button>
+      </form> 
+      </div>
+     <% } %>
+      <div class="container mt-4">
+        <h1>Comments</h1>
+        <% if (allcomments.length===0) { %>
+         <h4>No comments yet</h4>
+        <% } %>
+        <% allcomments.forEach(item => { %>
+          <div class="container mt-3">
+          <h5 class="card-text  "><%= item.createdby.fullname %></h5>
+          <p class="card-text mt-1"><%= item.content %></p>
+        </div>
+        <% }) %>
+      </div>
+
+      <div class="container mt-5 " style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <% allblogs.forEach(item => { %>
+            <div class="card" style="width: 18rem;">
+
+                    <img src="<%= item.coverimgurl %>" class="card-img-top" style="width: 18rem; margin: auto;" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%= item.title %></h5>
+                  <p class="card-text" style="word-wrap: break-word; height: 100px; overflow: hidden;"><%= item.body %></p>
+                  <a href="/blog/<%= item._id %>" class="btn btn-primary">Read...</a>
+                </div>
+              </div>
+        <% }) %>
+    </div>
+</div>
+    <%- include('./Partials/footer') %>
+    <%- include('./Partials/scripts') %>
+</body>
+</html>
