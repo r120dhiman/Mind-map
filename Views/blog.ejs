@@ -7,7 +7,7 @@
 <body>
     <%- include('./Partials/navbar')%>
     <div class="main" style="height: 680px; overflow: auto;">
-    <pre class=" mb-3 mt-5 container" style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-direction: column;">
+    <div class=" mb-3 mt-5 container" style="display: flex; justify-content: center; align-items: center; gap: 20px; flex-direction: column;">
         <% if (blogdata.coverimgurl) { %>
             <img src="<%= blogdata.coverimgurl %>" class="card-img-top" style="height: 500px; " alt="...">
         <% } %>
@@ -20,7 +20,7 @@
           <img src="<%= blogdata.createdby.profileimg %>" width="60px" style="border-radius: 50%; overflow: hidden;" alt="">
           <h2> -<%= blogdata.createdby.fullname %></h2>
         </div>
-      </pre>
+      </div>
      <% if (locals.user) { %>
       <div class="form-floating container">
         <form method="post" action="/blog/comment/<%= blogdata._id %>" >
