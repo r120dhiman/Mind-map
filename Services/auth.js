@@ -1,6 +1,6 @@
 const jwt=require('jsonwebtoken');
 
-const secret="rohit";
+const secret=process.env.KEY;
 
 function createjwttoken(user) {
     const payload={

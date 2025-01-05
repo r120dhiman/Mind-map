@@ -7,10 +7,14 @@
 <body>
     <%- include('./Partials/navbar')%>
     <div class="container " style="display: flex; justify-content: center; align-items: center; height: 750px;">
-        <form action="/user/signup" class="" style="width: 500px;" method="post">
+        <form action="/user/signup" class="" style="width: 500px;" method="post" enctype="multipart/form-data">
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Enter your name</label>
               <input type="text" class="form-control" name="fullname" id="exampleInputEmail1" aria-describedby="emailHelp"> 
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Upload Profile Image</label>
+              <input type="file" class="form-control" name="profileimgfront" id="exampleInputEmail1" aria-describedby="emailHelp"> 
             </div>
             <div class="mb-3">
               <label for="exampleInputEmail1" class="form-label">Email address</label>
