@@ -31,7 +31,7 @@ router.post('/signup', Profileimg.single("profileimgfront"),async(req, res) => {
   let profile;
   let coverImgUrl;
   if (req.file == undefined) {
-    profile = "";
+    profile = "/user.svg";
   }
   else {
     profile = `/uploads/${req.file.filename}`;
